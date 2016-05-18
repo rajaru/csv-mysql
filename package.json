@@ -1,0 +1,32 @@
+{
+  "name": "csv-mysql",
+  "version": "1.0.0",
+  "description": "CSV to Mysql Import for Node",
+  "main": "csvmysql.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajaru/csv-mysql.git"
+  },
+  "keywords": [
+    "csv",
+    "mysql",
+    "node"
+  ],
+  "author": "Raja Raman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rajaru/csv-mysql/issues"
+  },
+  "homepage": "https://github.com/rajaru/csv-mysql#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "csv": "^1.1.0",
+    "mysql": "^2.10.2"
+  }
+}
