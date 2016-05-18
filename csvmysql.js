@@ -1,4 +1,23 @@
-/* jshint node: true */
+/*
+ * csv-mysql
+ *	CSV to mysql importer
+ *
+ *	License: Public domain
+ *	You may do anything  with this code thats legal in your country :-)
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+ *  IN THE SOFTWARE.
+ *
+ *  Author: Raja Raman
+ * 	v1.0 May-14-2016
+ */
+
+ /* jshint node: true */
 'use strict';
 var csv     = require('csv');
 var mysql 	= require('./dbmysql.js');
