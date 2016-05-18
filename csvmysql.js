@@ -26,6 +26,8 @@ CsvMysql.prototype._makeSql = function(adata, header){
 			i --;	//stay in same index
 		}
 	}
+	if( header.length===0 )
+		return null;
 
 	//add fixed data to all rows if found in columns
 	//
@@ -53,7 +55,7 @@ CsvMysql.prototype._importRows = function(adata, header, callback){
 	if( adata.length>max ){
 		var part = adata.splice(0, max);
 		sql = _self._makeSql(part, header.slice());
-
+		if(!sql)return callback(true, "No insertable column found.");
 		mysql.insert(_self.options.mysql, sql, [part], function(err, res, ids){
 			if( !err )_self.rows += adata.length;
 			_self._importRows(adata, header, callback);
@@ -61,7 +63,7 @@ CsvMysql.prototype._importRows = function(adata, header, callback){
 	}
 	else{
 		sql = _self._makeSql(adata, header.slice());
-
+		if(!sql)return callback(true, "No insertable column found.");
 		mysql.insert(_self.options.mysql, sql, [adata], function(err, ids){
 			if( !err )_self.rows += adata.length;
 			return callback(err, ids);
