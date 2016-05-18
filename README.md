@@ -9,11 +9,11 @@ csv-mysql
    inserts.
 
 ## Options
-   table - Name of the target table, must exist in the database
+   * table - Name of the target table, must exist in the database
 
 
 
-   mysql - Node-Mysql module configuration. Must include, minimum of following
+   * mysql - Node-Mysql module configuration. Must include, minimum of following
    			parameters
 			host: target host server
 			user: user name
@@ -24,13 +24,13 @@ csv-mysql
 
 
 
-   csv - Options to be passed on to the CSV Parser module.
+   * csv - Options to be passed on to the CSV Parser module.
    			For unquoted csv files pass quote parameter as null
 			For additional options please refer to Node-Csv module [documentation](http://csv.adaltas.com/parse/)
 
 
 
-   maxrows: number of rows to insert at a time. Improves performance upto a point
+   * maxrows: number of rows to insert at a time. Improves performance upto a point
    			and tapers afterwards. Experiment with your installation.
 			You may have to change mysql --max_allowed_packet parameter (or global)
 			to accommodate larger data inserted in one-go. If you can't change it
@@ -38,7 +38,7 @@ csv-mysql
 
 
 
-   headers: By default first row in the input data is considered as header.
+   * headers: By default first row in the input data is considered as header.
    			Alternatively you can provide list of columns as array of strings
 			through this parameter. Please note, the header columns will be
 			ignored if the target table does not have a corresponding field with
@@ -69,3 +69,15 @@ csv-mysql
 ## ToDo
 	- Validate data types before inserting
 	- Column names are case-sensitive, make insensitive
+
+## LICENSE
+	Public domain
+ 	You may do anything  with this code that is legal in your country :-)
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ 	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ 	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ 	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ 	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ 	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+ 	IN THE SOFTWARE.
