@@ -60,20 +60,37 @@ csv-mysql
 	var cm = require('csv-mysql');
 
 	var data = '"c1","c2","c3"\n"1","2","3"\n"4","5","6"';
-	var mysql = {
-		host: '127.0.0.1',
-		user: 'root',
-		database: 'test',
-	};
-	var csvopt = {
-		comment: '#',
-		quote: '"'
-	};
-	cm.import({mysql: mysql, csv: csvopt, table: 'test'}, data, function(err, rows){
+	var options = {
+		mysql: {
+			host: '127.0.0.1',
+			user: 'root',
+			database: 'test',
+		},
+		csv: {
+			comment: '#',
+			quote: '"'
+		},
+		table: 'test'
+	}
+
+	cm.import(options, data, function(err, rows){
 		if( err===null )err = false;
 		expect(err).to.equal(false);
 		done();
 	});
+
+	//adding additional column to every row
+	// equivalent of var data = '"c1","c2","c3","c4"\n"1","2","3","111"\n"4","5","6","111"';
+	//
+	options.fixedData = {
+		c4: "111"
+	};
+	cm.import(options, data, function(err, rows){
+		if( err===null )err = false;
+		expect(err).to.equal(false);
+		done();
+	});
+
 
 ## ToDo
 	- Validate data types before inserting
