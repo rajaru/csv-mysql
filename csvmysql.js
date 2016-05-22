@@ -103,10 +103,12 @@ CsvMysql.prototype.import = function(data, callback){
 	mysql.getColumnNames(_self.options.mysql, _self.options.table, function(err, cols){
 		if( err )return callback(err, err);
 
+		for(var i=0; i<cols.length; i++)cols[i] = cols[i].toLowerCase();
 		_self.columns = cols;
 		csv.parse(data, _self.options.csv, function(err, rows){
 			if( err )return callback(err, err);
 			var header = _self.options.headers || rows.shift();
+			for(var i=0; i<header.length; i++)header[i] = header[i].toLowerCase();
 			_self._importRows(rows, header, callback);
 		});
 	});

@@ -4,6 +4,10 @@ csv-mysql
    values is faster upto 16K rows (YMMV, use maxrows option to experiment).
 
 
+   Existing rows will get updated if found with same primary/unique keys otherwise
+   new rows will be created.
+
+
    Validates the columns and ignores additional columns in the data (that are not present
    in the original table).
 
@@ -79,9 +83,11 @@ csv-mysql
 		done();
 	});
 
+## Sample 2
 	//adding additional column to every row
 	// equivalent of var data = '"c1","c2","c3","c4"\n"1","2","3","111"\n"4","5","6","111"';
 	//
+	var data = '"c1","c2","c3"\n"1","2","3"\n"4","5","6"';
 	options.fixedData = {
 		c4: "111"
 	};
@@ -121,7 +127,6 @@ csv-mysql
 
 ## ToDo
 	- Validate data types before inserting
-	- Column names are case-sensitive, make insensitive
 
 ## LICENSE
 	Public domain
