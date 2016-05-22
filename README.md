@@ -92,6 +92,33 @@ csv-mysql
 	});
 
 
+## Sample 2
+	//data without header
+	//
+	var cm = require('csv-mysql');
+
+	var data = '"1","2","3"\n"4","5","6"';
+	var options = {
+		mysql: {
+			host: '127.0.0.1',
+			user: 'root',
+			database: 'test',
+		},
+		csv: {
+			comment: '#',
+			quote: '"'
+		},
+		table: 'test',
+		headers: ["c1","c2","c3"]
+	}
+
+	cm.import(options, data, function(err, rows){
+		if( err===null )err = false;
+		expect(err).to.equal(false);
+		done();
+	});
+
+
 ## ToDo
 	- Validate data types before inserting
 	- Column names are case-sensitive, make insensitive
