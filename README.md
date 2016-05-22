@@ -2,8 +2,12 @@ csv-mysql
 =========
    Imports CSV files into MySQL Databases, using multi-valued inserts. Using multiple
    values is faster upto 16K rows (YMMV, use maxrows option to experiment).
+
+
    Validates the columns and ignores additional columns in the data (that are not present
    in the original table).
+
+
    This module does not create target table, it must exist when import is called.
    This module depends on Node-Csv to parse the csv files and Node Mysql to do the
    inserts.
