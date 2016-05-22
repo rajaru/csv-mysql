@@ -56,9 +56,9 @@ var db = {
 	getColumnNames: function(conf, tableName, callback){
 		var sql = "show columns from "+tableName;
 		db.query(conf, sql, [], function(err, rows, fields){
+			if( err )return callback(err, rows);
 			var arr = [];
-			if( !err )
-				for( var i in rows )arr.push(rows[i].Field);
+			for( var i in rows )arr.push(rows[i].Field);
 			return callback(err, arr);
 		});
 

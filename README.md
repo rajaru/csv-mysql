@@ -44,6 +44,11 @@ csv-mysql
 			ignored if the target table does not have a corresponding field with
 			the same name.
 
+   * fixedData: you can additional data (same data used across all rows) to the
+   			table apart from what is provided in the buffer. This must be a name
+			value pair javascript object.
+
+
 ## Installation
     npm install csv-mysql --save
 

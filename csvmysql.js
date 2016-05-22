@@ -101,7 +101,7 @@ CsvMysql.prototype.import = function(data, callback){
 		return callback(true, 'missing mysql in options');
 
 	mysql.getColumnNames(_self.options.mysql, _self.options.table, function(err, cols){
-		if( err )return callback(err, cols);
+		if( err )return callback(err, err);
 
 		_self.columns = cols;
 		csv.parse(data, _self.options.csv, function(err, rows){
