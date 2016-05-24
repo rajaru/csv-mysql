@@ -125,7 +125,7 @@ csv-mysql
 	});
 
 ## Bug Report
-	Please [open an issue](https://github.com/rajaru/csv-mysql/issues).
+   Please open an [issue](https://github.com/rajaru/csv-mysql/issues) .
 
 ## ToDo
 	- Validate data types before inserting
