@@ -77,32 +77,34 @@ csv-mysql
 		table: 'test'
 	}
 
-	cm.import(options, data, function(err, rows){
-		if( err===null )err = false;
-		expect(err).to.equal(false);
-		done();
+	cm.import(options, data, function(err, txt){
+		if( err )
+			console.log(err+": "+txt);
+		else
+			console.log("Import completed");
 	});
 
 ## Sample 2
-	//adding additional column to every row
-	// equivalent of var data = '"c1","c2","c3","c4"\n"1","2","3","111"\n"4","5","6","111"';
+	//adding additional column to every row (which is not part of input csv)
+	// equivalent of
+	// var data = '"c1","c2","c3","c4"\n"1","2","3","111"\n"4","5","6","111"';
 	//
 	var data = '"c1","c2","c3"\n"1","2","3"\n"4","5","6"';
 	options.fixedData = {
 		c4: "111"
 	};
-	cm.import(options, data, function(err, rows){
-		if( err===null )err = false;
-		expect(err).to.equal(false);
-		done();
+	cm.import(options, data, function(err, txt){
+		if( err )
+			console.log(err+": "+txt);
+		else
+			console.log("Import completed");
 	});
 
 
-## Sample 2
+## Sample 3
 	//data without header
 	//
 	var cm = require('csv-mysql');
-
 	var data = '"1","2","3"\n"4","5","6"';
 	var options = {
 		mysql: {
@@ -118,10 +120,11 @@ csv-mysql
 		headers: ["c1","c2","c3"]
 	}
 
-	cm.import(options, data, function(err, rows){
-		if( err===null )err = false;
-		expect(err).to.equal(false);
-		done();
+	cm.import(options, data, function(err, txt){
+		if( err )
+			console.log(err+": "+txt);
+		else
+			console.log("Import completed");
 	});
 
 ## Bug Report
