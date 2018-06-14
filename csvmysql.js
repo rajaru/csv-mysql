@@ -93,7 +93,7 @@ CsvMysql.prototype._importRows = function(adata, header, callback){
 CsvMysql.prototype.import = function(data, callback){
 	var _self = this;
 
-	//chacke for mandatory options(???)
+	//check for mandatory options(???)
 	//
 	if( !_self.options.hasOwnProperty('table') )
 		return callback(true, 'missing table in options');
